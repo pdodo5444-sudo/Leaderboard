@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Siyu伺服器的時間排行榜 — Siyu server's Leaderboard">
+  <title>Siyu伺服器的時間排行榜 // TIME ATTACK</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Orbitron:wght@500;700;800;900&family=Noto+Sans+TC:wght@500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="crt-noise"></div>
+  <div class="speed-lines"></div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <button class="brand" id="brandHome" type="button" aria-label="回到首頁">
+        <span class="brand-kicker">SIYU SERVER // TIME ATTACK</span>
+        <span class="brand-cn">Siyu伺服器的時間排行榜</span>
+        <span class="brand-en">Siyu server's Leaderboard</span>
+      </button>
+      <div class="header-actions">
+        <span class="status"><i></i> ONLINE</span>
+        <span class="arcade-text">TIME ATTACK</span>
+        <button id="refreshBtn" class="refresh-btn" type="button">↻ UPDATE</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="app" class="page-shell">
+    <section id="homeView" class="view">
+      <div class="arcade-hero">
+        <div class="hero-copy">
+          <p class="eyebrow">◆ SELECT COURSE ◆</p>
+          <h1>MAP <em>SELECT</em></h1>
+          <p class="lead">選擇賽道，挑戰最快傳說。</p>
+        </div>
+        <div class="hero-badge"><span>全国対戦</span><strong>TIME<br>ATTACK</strong></div>
+      </div>
+      <div class="arcade-divider"><span>COURSE SELECT</span></div>
+      <div id="trackGrid" class="track-grid"></div>
+      <div class="insert-coin"><span class="blink-dot"></span> CLICK A COURSE TO START <span class="blink-dot"></span></div>
+    </section>
+
+    <section id="eventsView" class="view hidden">
+      <div class="view-topbar">
+        <button id="backHomeBtn" class="back-btn" type="button">◀ MAP SELECT</button>
+        <span class="step-indicator">STEP 02 / EVENT</span>
+      </div>
+      <div id="trackHero" class="track-hero"></div>
+      <div class="section-heading">
+        <div><p class="eyebrow">◆ EVENT SELECT ◆</p><h2 id="eventsTitle"></h2></div>
+        <p id="eventsCount" class="muted"></p>
+      </div>
+      <div id="eventGrid" class="event-grid"></div>
+      <div class="insert-coin"><span class="blink-dot"></span> SELECT EVENT <span class="blink-dot"></span></div>
+    </section>
+
+    <section id="leaderboardView" class="view hidden">
+      <div class="view-topbar">
+        <button id="backEventsBtn" class="back-btn" type="button">◀ EVENT SELECT</button>
+        <span class="step-indicator">STEP 03 / RANKING</span>
+      </div>
+      <div id="leaderboardHero" class="leaderboard-hero"></div>
+      <div class="leaderboard-toolbar">
+        <div class="title-stack">
+          <p class="eyebrow">◆ TIME ATTACK RANKING ◆</p>
+          <h2 id="leaderboardTitle"></h2>
+          <p id="leaderboardMeta" class="muted"></p>
+        </div>
+        <div class="class-switcher-wrap"><span class="class-label">CLASS</span><div class="class-switcher" id="classSwitcher" aria-label="車輛級別"></div></div>
+      </div>
+      <div class="table-wrap">
+        <table class="leaderboard-table">
+          <thead><tr><th>RANK</th><th>DRIVER</th><th>CAR</th><th>TIME</th><th>DATE</th></tr></thead>
+          <tbody id="leaderboardBody"></tbody>
+        </table>
+      </div>
+      <div id="emptyState" class="empty-state hidden"><div class="empty-icon">◎</div><h3>NO RECORD</h3><p>目前沒有這個級別的時間紀錄。</p><code>leaderboard.csv</code></div>
+    </section>
+
+    <section id="errorView" class="view hidden">
+      <div class="error-card"><h2>DATA ERROR</h2><p id="errorText"></p><button id="errorRetryBtn" class="primary-btn" type="button">RETRY</button></div>
+    </section>
+  </main>
+  <footer class="site-footer"><span>SIYU SERVER'S LEADERBOARD</span><span>STATIC // GITHUB PAGES // CSV POWERED</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
